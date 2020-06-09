@@ -1,3 +1,3 @@
 seop
 seopseop
-kmu sw
+kmu sw(cd)
