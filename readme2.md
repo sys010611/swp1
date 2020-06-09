@@ -1,1 +1,1 @@
-ok	computer
+OKCOMPUTER
