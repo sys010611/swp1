@@ -3,10 +3,14 @@ from template import html
 
 def application(environ, start_response):
 	d = parse_qs(environ['QUERY_STRING'])
-	a = d.get('a','0')[0] #a,b=0 if no input
-	b = d.get('b','0')[0]
+	a = d.get('a',[''])[0] 
+	b = d.get('b',[''])[0]
 
-	if a.isdigit() and b.isdigit():
+	if a == '' and b == '':
+		sum = 'None'
+		mul = 'None'
+
+	elif a.isdigit() and b.isdigit():
 		a, b = int(a), int(b)
 		sum = a+b
 		mul = a*b
