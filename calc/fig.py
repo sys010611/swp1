@@ -3,7 +3,7 @@ from template import html
 
 def application(environ, start_response):
 	d = parse_qs(environ['QUERY_STRING'])
-	a = d.get('a','0')[0]
+	a = d.get('a','0')[0] #a,b = 0 if no input
 	b = d.get('b','0')[0]
 
 	a, b = int(a), int(b)
