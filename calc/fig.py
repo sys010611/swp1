@@ -3,14 +3,19 @@ from template import html
 
 def application(environ, start_response):
 	d = parse_qs(environ['QUERY_STRING'])
-	a = d.get('a','0')[0] #a,b = 0 if no input
+	a = d.get('a','0')[0] #a,b=0 if no input
 	b = d.get('b','0')[0]
 
-	a, b = int(a), int(b)
-
+	if a.isdigit() and b.isdigit():
+		a, b = int(a), int(b)
+		sum = a+b
+		mul = a*b
+	else:
+		sum = '?'
+		mul = '?'
 	response_body = html % {
-		'sum':[a+b],
-		'mul':[a*b],
+		'sum':sum,
+		'mul':mul,
 	}
 
 	status = '200 OK'
